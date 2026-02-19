@@ -16,8 +16,8 @@ export default function AdminPanel() {
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
-      const foodRes = await axios.get('http://localhost:5000/api/foods');
-      const orderRes = await axios.get('http://localhost:5000/api/admin/orders');
+      const foodRes = await axios.get('https://food-app-bnd.onrender.com/api/foods');
+      const orderRes = await axios.get('https://food-app-bnd.onrender.com/api/admin/orders');
       
       setFoods(Array.isArray(foodRes.data) ? foodRes.data : []);
       setOrders(Array.isArray(orderRes.data) ? orderRes.data : []); 
@@ -40,9 +40,9 @@ export default function AdminPanel() {
     
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/admin/update/${editId}`, form);
+        await axios.put(`https://food-app-bnd.onrender.com/api/admin/update/${editId}`, form);
       } else {
-        await axios.post('http://localhost:5000/api/admin/add', form);
+        await axios.post('https://food-app-bnd.onrender.com/api/admin/add', form);
       }
       setForm({ name: '', price: '', image: '', description: '' });
       setEditId(null);
@@ -52,7 +52,7 @@ export default function AdminPanel() {
 
   const deleteFood = async (id) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
-      await axios.delete(`http://localhost:5000/api/admin/delete/${id}`);
+      await axios.delete(`https://food-app-bnd.onrender.com/api/admin/delete/${id}`);
       fetchData();
     }
   };

@@ -12,7 +12,7 @@ export default function Cart() {
 
   const handleCheckout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/orders', {
+      await axios.post('https://food-app-bnd.onrender.com/api/orders', {
         user: "Customer_" + Math.floor(Math.random() * 1000), // Guest ID
         items: cart,
         total: total

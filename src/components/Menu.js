@@ -7,7 +7,7 @@ const Menu = () => {
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/foods')
+    axios.get('https://food-app-bnd.onrender.com/api/foods')
       .then(res => setFoods(res.data))
       .catch(err => console.error(err));
   }, []);

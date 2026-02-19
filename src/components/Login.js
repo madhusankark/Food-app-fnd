@@ -12,7 +12,7 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/login', credentials);
+      const res = await axios.post('https://food-app-bnd.onrender.com/api/admin/login', credentials);
       if (res.data.success) {
         localStorage.setItem('isAdminAuthenticated', 'true');
         navigate('/admin');
